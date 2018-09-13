@@ -33,8 +33,11 @@ Basic API for SAPI1 live coding
 
 ## Clone the project
 
-  - Create a folder in your workspace that will be dedicated to the project. Every command will be made from this folder
+  - Create a folder in your workspace that will be dedicated to the project. Then, clone the repository
+  
     ```$ git clone git@github.com:octo-woapi/SAPI1.git```
+    
+    Enter the SAPI1 folder. Every command bellow will be made from this folder
 
 
 ## Makefile
@@ -47,7 +50,7 @@ If you have troubles installing or using **make** in a Windows environment, you 
 
 The API project is accessible via a python virtual environment. For more informationlis about virtualenvs, check the [official documentation](https://virtualenv.pypa.io/en/stable/)
 
-Create a virtual environment inside the api_cost_estimator folder
+Create a virtual environment inside the SAPI1 folder
 
     virtualenv venv
 
