@@ -63,16 +63,16 @@ On Windows : ```venv/Scripts/activate.bat```
 
 ## Install dependencies
 
-   This command should be made inside the virtual environment only.
+  This command should be made inside the virtual environment only.
 
     make install_requirements_dev
 
 ## Start the API
 
-   This command should be made inside the virtual environment only.
+  This command should be made inside the virtual environment only.
 
     make start
 
   The API runs on the address **127.0.0.1** (localhost) on the port **5000**
-
+  Visit http://localhost:5000/sapi/hello
 
