@@ -3,7 +3,7 @@
 
 from flask import Flask, jsonify, url_for
 from flask_cors import CORS
-from models import db, User
+from models import db, User, Client, Mission, Candidate
 from json_encoder import SapiJSONEncoder
 from routing import routing
 
@@ -37,6 +37,23 @@ guest = User(username='guest', email='guest@example.com')
 db.session.add(admin)
 db.session.add(guest)
 
+chronopost = Client(name='chronopost', siret='234535645')
+coca = Client(name='cocacolacompany', siret='23453545444')
+pole_emploi = Client(name='poleemploi', siret='42')
+
+mission1 = Mission(job_title='livreur', slots='10', start_date='01/01/2020')
+
+toto = Candidate(name='Toto', email='toto@gmail.com')
+titi = Candidate(name='Titi', email='titi@gmail.com')
+
+mission1.candidates.append(toto)
+chronopost.missions.append(mission1)
+
+db.session.add(chronopost)
+db.session.add(coca)
+db.session.add(pole_emploi)
+db.session.add(titi)
+
 # this line should be the last in order to insert all tuples
 db.session.commit()
 
@@ -44,4 +61,8 @@ db.session.commit()
 # ********************* ROUTING *********************
 
 app.register_blueprint(routing, url_prefix='/sapi/')
+
+@app.errorhandler(KeyError)
+def baaaaad(error):
+    return jsonify("Le champ "+str(error.args[0])+" est obligatoire"), 400
 
